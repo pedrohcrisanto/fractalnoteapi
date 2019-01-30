@@ -1,14 +1,21 @@
-Fractal Note Api
+<h1>Fractal Note Api</h1>
 
-* API desenvolvida por Pedro Crisanto para fins de teste de conhecimento. *
+* API desenvolvida por Pedro Crisanto para fins de teste de conhecimento.
 
-Instruções para configurar o projeto:
+<h2>Instruções para configurar o projeto:</h2>
 
 - sudo docker-compose run --rm website bundle install
+
 - sudo docker-compose run --rm website bundle exec db:create db:migrate
-- sudo docker-compose run up (deixar um terminal aberto rodando a aplicação, antes de popular o banco)
-- sudo docker-compose run --rm website bundle exec rails dev:setup (Popular Banco de Dados)
-- sudo docker-compose run --rm website bundle exec rspec (Roda os Testes)
+
+- sudo docker-compose run up 
+(deixar um terminal aberto rodando a aplicação, antes de popular o banco)
+
+- sudo docker-compose run --rm website bundle exec rails dev:setup 
+(Popular Banco de Dados)
+
+- sudo docker-compose run --rm website bundle exec rspec 
+(Roda os Testes)
 
 Para acessar o Sidekiq => https://localhost:3000/sidekiq
 
