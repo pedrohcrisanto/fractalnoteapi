@@ -6,6 +6,15 @@ services:
     volumes:
       - 'postgres:/var/lib/postgresql/data'
 
+  elasticsearch:
+    image: 'elasticsearch:2'
+    ports:
+      - '9200:9200'
+    volumes:
+      - 'elastic:/usr/share/elasticsearch/data'
+    environment:
+      - Des.network.host=0.0.0.0
+
   redis:
     image: 'redis:3.2-alpine'
     command: redis-server
@@ -37,6 +46,8 @@ services:
     volumes:
       - '.:/fractalnoteapi'
       - gems:/gems
+    environment:
+      ELASTICSEARCH_URL: elasticsearch:9200
     volumes_from:
     - box
 
@@ -45,10 +56,9 @@ services:
     volumes:
       - /box
 
-
-
 volumes:
   redis:
   postgres:
   box:
   gems:
+  elastic:

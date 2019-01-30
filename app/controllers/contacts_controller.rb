@@ -8,6 +8,10 @@ class ContactsController < ApplicationController
     render json: @contacts , include: [:kind, :phones, :address]
   end
 
+  def search
+      @contacts = Contact.search params[:keywords], fields: [:name]
+  end
+
   # GET /contacts/1
   def show
     render json: @contact , include: [:kind, :phones, :address]
