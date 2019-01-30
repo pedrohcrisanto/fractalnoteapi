@@ -6,9 +6,9 @@ API desenvolvida por Pedro Crisanto para fins de teste de conhecimento.
 
 - sudo docker-compose run --rm website bundle install
 
-- sudo docker-compose run --rm website bundle exec db:create db:migrate
+- sudo docker-compose run --rm website bundle exec rails db:create db:migrate
 
-- sudo docker-compose run up 
+- sudo docker-compose up 
 **(deixar um terminal aberto rodando a aplicação, antes de popular o banco)**
 
 - sudo docker-compose run --rm website bundle exec rails dev:setup 
