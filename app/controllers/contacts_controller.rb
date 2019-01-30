@@ -9,7 +9,7 @@ class ContactsController < ApplicationController
   end
 
   def search
-      @contacts = Contact.search params[:keywords], fields: [:name]
+    @contacts = Contact.search params[:keywords], fields: [:name]
   end
 
   # GET /contacts/1

@@ -1,7 +1,53 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+puts "Cadastrando os tipos de contato..."
+
+    kinds = %w(Amigo Comercial Conhecido)
+
+    kinds.each do |kind|
+      Kind.create!(
+        description: kind
+      )
+    end
+
+    puts "Tipos Contato cadastrados com sucesso!"
+
+    ######################
+
+    puts "Cadastrando os contatos..."
+
+    50.times do |i|
+      Contact.create!(
+        name: Faker::Name.name,
+        email: Faker::Internet.email,
+        birthdate: Faker::Date.between(65.years.ago, 18.years.ago),
+        kind: Kind.all.sample
+      )
+    end
+
+    puts "Contatos cadastrados com sucesso!"
+
+    ######################
+
+    puts "Cadastrando os telefones..."
+
+    Contact.all.each do |contact|
+      Random.rand(5).times do |i|
+        phone = Phone.create(number:Faker::PhoneNumber.cell_phone)
+        contact.phones << phone
+        contact.save
+      end
+    end
+
+    puts "Telefones cadastrados com sucesso!"
+
+    ######################
+    puts "Cadastrando os endereços..."
+
+    Contact.all.each do |contact|
+      Address.create(
+        street: Faker::Address.street_address,
+        city: Faker::Address.city,
+        contact: contact
+      )
+    end
+
+  puts "Endereços cadastrados com sucesso!"
