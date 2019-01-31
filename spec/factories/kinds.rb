@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :kind do
-    description { "MyString" }
+    description { "Comercial" }
   end
 end

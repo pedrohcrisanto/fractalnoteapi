@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :phone do
-    number { "MyString" }
+    number { "628-746-6134" }
     contact { nil }
   end
 end
